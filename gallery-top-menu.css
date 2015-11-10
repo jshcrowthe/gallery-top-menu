@@ -11,13 +11,17 @@ gallery-filters {
 }
 
 ::content [albums-toggle] {
-  margin: 0 5px 0 0;
+  margin: 0 5px 0 10px;
+  position: relative;
 }
 
 ::content [albums-toggle]:after {
   content: '▾';
   font-style: normal;
-  margin: 0 0 0 5px;
+  margin: -11px 0 0 0;
+  position: absolute;
+  right: -15px;
+  top: 50%;
 }
 
 ::content [albums-toggle]:hover {
