@@ -20,23 +20,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <p>An example of <code>&lt;gallery-top-menu&gt;</code>:</p>
 
-    <p>Make words! <button id="saybtn">Say Something</button></p>
-    <p>Make lasers! <button id="laserbtn">Fire lasers</button></p>
-
-    <gallery-top-menu author='{"name": "Lord Meowser", "image": "http://placekitten.com/g/200/300"}' fancy>
-      <h2>Hello gallery-top-menu</h2>
+    <gallery-top-menu>
+      <i albums-toggle>Icon</i>
     </gallery-top-menu>
 
     <script>
       var seedElement = document.querySelector('gallery-top-menu');
-      
-      document.querySelector('#saybtn').addEventListener('click', function() {
-        alert(seedElement.sayHello('Hallo!'));
-      });
-      
-      document.querySelector('#laserbtn').addEventListener('click', function() {
-        seedElement.fireLasers();
-      });
       
       document.addEventListener("gallery-top-menu-lasers", function(e) {
         console.log(e.detail.sound);
