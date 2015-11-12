@@ -44,7 +44,7 @@ Example:
         </div>
       </div>
       <div class="flex-1 layout horizontal center justified inner-menu search-menu">
-        <input type="text" placeholder='Filter By Title or Description' class='flex-2 search-text search-icon-image'>
+        <input type="text" value='{{searchVal::input}}' placeholder='Filter By Title or Description' class='flex-2 search-text search-icon-image'>
         <span class='flex-1 sort-button'>Sort by</span>
       </div>
     </div>
@@ -59,9 +59,22 @@ Example:
     is: 'gallery-top-menu',
 
     properties: {
-
+      searchVal: {
+        type: String,
+        observer: '_searchChanges'
+      },
+      broadcastChanges: {
+        type: Boolean,
+        value: false
+      }
     },
+    _searchChanges: function(val) {
+      if (!this.broadcastChanges) return;
 
+      this.fire('gallery-top-menu-search-changed', {
+        search: val
+      });
+    },
     _toggleSearchMenu: function() {
       var expanded = this.$.wrap.classList.contains('expanded');
       this.toggleClass('active', !expanded, this.$.search);
