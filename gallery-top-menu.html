@@ -11,6 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../gallery-filters/gallery-filters.html">
 <link rel="import" href="../layout/layout.html">
+<link rel="import" href="../fs-styles/fs-styles.html">
 <!--
 An element providing a solution to no problem in particular.
 
@@ -24,15 +25,28 @@ Example:
 @hero hero.svg
 -->
 <dom-module id="gallery-top-menu">
+  <style include='fs-styles'></style>
   <link rel="import" type="css" href="gallery-top-menu.css">
   <template>
     <iron-media-query query="(max-width: 979px)" query-matches="{{mobile}}"></iron-media-query>
-    <div class='layout horizontal center'>
-      <content select='[albums-toggle]'></content>
-      
-      <template is='dom-if' if="{{!mobile}}">
-        <gallery-filters></gallery-filters>
-      </template>
+    <div id='wrap' class="layout veritcal center center-justified menu-wrap">
+      <div class='flex-1 layout horizontal center justified inner-menu'>
+        <div class='layout horizontal center'>
+          <content select='[albums-toggle]'></content>
+          
+          <template is='dom-if' if="{{!mobile}}">
+            <gallery-filters></gallery-filters>
+          </template>
+        </div>
+        <div class='layout horizontal center functions'>
+          <i class='overflow-icon'></i>
+          <i id='search' class='search-icon search-icon-image' on-tap='_toggleSearchMenu'></i>
+        </div>
+      </div>
+      <div class="flex-1 layout horizontal center justified inner-menu search-menu">
+        <input type="text" placeholder='Filter By Title or Description' class='flex-2 search-text search-icon-image'>
+        <span class='flex-1 sort-button'>Sort by</span>
+      </div>
     </div>
   </template>
 
@@ -46,6 +60,12 @@ Example:
 
     properties: {
 
+    },
+
+    _toggleSearchMenu: function() {
+      var expanded = this.$.wrap.classList.contains('expanded');
+      this.toggleClass('active', !expanded, this.$.search);
+      this.toggleClass('expanded', !expanded, this.$.wrap);
     },
 
   });
