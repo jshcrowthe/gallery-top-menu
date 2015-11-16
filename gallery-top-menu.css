@@ -25,9 +25,9 @@ gallery-filters {
 ::content [albums-toggle]:after {
   content: '▾';
   font-style: normal;
-  margin: -11px 0 0 2px;
   position: relative;
   top: 50%;
+  left: 100%;
 }
 
 ::content [albums-toggle]:hover {
@@ -102,6 +102,7 @@ input.search-text {
   display: inline-block;
   max-width:60px;
   overflow:hidden;
+  margin: 0 7px 0 0;
 }
 
 .functions {
