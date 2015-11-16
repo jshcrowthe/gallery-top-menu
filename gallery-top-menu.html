@@ -32,11 +32,16 @@ Example:
     <div id='wrap' class="layout veritcal center center-justified menu-wrap">
       <div class='flex-1 layout horizontal center justified inner-menu'>
         <div class='layout horizontal center'>
-          <content select='[albums-toggle]'></content>
-          
+          <span class='toggle-icon'>
+            <content select='[albums-toggle]'></content>
+          </span>
+
+          <span class='current-view' hidden='[[!mobile]]'>[[currentView]]</span>
+
           <template is='dom-if' if="{{!mobile}}">
             <gallery-filters></gallery-filters>
           </template>
+
         </div>
         <div class='layout horizontal center functions'>
           <i class='overflow-icon'></i>
@@ -44,7 +49,7 @@ Example:
         </div>
       </div>
       <div class="flex-1 layout horizontal center justified inner-menu search-menu">
-        <input type="text" value='{{searchVal::input}}' placeholder='Filter By Title or Description' class='flex-2 search-text search-icon-image'>
+        <input type="text" value='{{searchVal::input}}' placeholder='Filter by Title or Description' class='flex-2 search-text search-icon-image'>
         <span class='flex-1 sort-button'>Sort by</span>
       </div>
     </div>
@@ -59,14 +64,18 @@ Example:
     is: 'gallery-top-menu',
 
     properties: {
+      broadcastChanges: {
+        type: Boolean,
+        value: false
+      },
+      currentView: {
+        type: String,
+        value: ''
+      },
       searchVal: {
         type: String,
         observer: '_searchChanges'
       },
-      broadcastChanges: {
-        type: Boolean,
-        value: false
-      }
     },
     _searchChanges: function(val) {
       if (!this.broadcastChanges) return;

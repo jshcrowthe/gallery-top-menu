@@ -1,0 +1,42 @@
+{
+  "name": "gallery-top-menu",
+  "authors": [
+    "Anonymous <anonymous@example.com>"
+  ],
+  "description": "An element providing a solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "seed"
+  ],
+  "main": "gallery-top-menu.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
+    "iron-media-query": "PolymerElements/iron-media-query#~1.0.6",
+    "gallery-filters": "jshcrowthe/gallery-filters",
+    "layout": "Polymer/layout",
+    "fs-styles": "fs-webdev/fs-styles#~1.8.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "resolutions": {
+    "polymer": "^1.2.0"
+  },
+  "_release": "ce49f997cc",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ce49f997cc63634a2211b3660177310afdfec861"
+  },
+  "_source": "git://github.com/jshcrowthe/gallery-top-menu.git",
+  "_target": "*",
+  "_originalSource": "jshcrowthe/gallery-top-menu"
+}

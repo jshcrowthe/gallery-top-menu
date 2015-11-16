@@ -17,7 +17,7 @@ gallery-filters {
 }
 
 ::content [albums-toggle] {
-  margin: 0 5px 0; 
+  margin: 0 9px 0 5px; 
   margin-left: var(--gallery-top-menu-side-border);
   position: relative;
 }
@@ -25,9 +25,8 @@ gallery-filters {
 ::content [albums-toggle]:after {
   content: '▾';
   font-style: normal;
-  margin: -11px 0 0 0;
-  position: absolute;
-  right: -15px;
+  margin: -11px 0 0 2px;
+  position: relative;
   top: 50%;
 }
 
@@ -37,6 +36,14 @@ gallery-filters {
 
 div {
   height: 100%;
+}
+
+.current-view {
+  display: inline-block;
+  max-width: calc(100vw - 150px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .menu-wrap {
@@ -89,6 +96,12 @@ input.search-text {
   display: inline-block;
   height: 100%;
   width: 30px;
+}
+
+.toggle-icon {
+  display: inline-block;
+  max-width:60px;
+  overflow:hidden;
 }
 
 .functions {
